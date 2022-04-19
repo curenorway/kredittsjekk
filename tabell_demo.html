@@ -1,0 +1,3730 @@
+<style>
+
+    /*** DEMO STYLES ***/
+    
+    body {
+        font-size: 12px !important;
+        width: 100%;
+        background-color: #e8ebfd;
+        font-family: Arial, Helvetica, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        padding: 0px;
+        margin: 0px;
+    }
+    
+    .demo-section {
+        display: block;
+        width: auto;
+        padding-top: 100px;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 100px;
+    }
+    
+    .demo-container {
+        width: 100%;
+        max-width: 1080px;
+        margin: auto;
+    }
+    
+    
+    
+    
+    
+    /*** PAGINATION AND SCROLLING ***/
+    
+    .progress-indicator {
+      position: absolute;
+      left: 0%;
+      top: 0%;
+      right: 0%;
+      bottom: 0%;
+      width: 0%;
+      margin-left: 0px;
+      border-radius: 999px;
+      background-color: #495fd8;
+    }
+    
+    .progress-indicator.progress-start {
+      width: 20px;
+      margin-left: 0px;
+    }
+    
+    .progress-bar-vertical {
+        border-radius: 999px;
+        z-index: 2;
+        position: absolute;
+        left: auto;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        overflow: hidden;
+        width: 3px;
+        margin-left: auto;
+        margin-right: 0px;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: start;
+        -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        background-color: #b3befc;
+    }
+    
+    .progress-indicator-vertical {
+      position: absolute;
+      left: 0%;
+      top: 0%;
+      right: 0%;
+      bottom: 0%;
+      width: 3px;
+      height: 0%;
+      margin-left: 0px;
+      border-radius: 999px;
+      background-color: #495fd8;
+    }
+    
+    .table-button-wrapper {
+        display: flex;
+        justify-items: right;
+        padding: 0px;
+        position: relative;
+        min-height: 1px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        background-color: #b3befc;
+        border-radius: 15px;
+        margin-left: auto;
+        width: 50%;
+    }
+    
+    .table-button {
+        cursor: pointer;
+        margin-top: auto;
+        display: flex;
+        width: 54px;
+        height: 24px;
+        border-radius: 15px;
+        position: relative;
+        background-color: #495fd8;
+        z-index: 10;
+        margin: 4px;
+    }
+    .table-button:hover {
+        background-color: #3647aa;
+    }
+    .table-button img {
+        margin: auto;
+        width: 8px;
+        height: 8px;
+    }
+    .left-button {
+        margin-right: auto;
+    }
+    
+    
+    
+    
+    
+    /*** CONTAINERS ***/ 
+    
+    table {
+        display: inline-block;
+        position: relative !important;
+        width: 100%;
+        height: auto;
+        color: #0A0909;
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        position: relative !important;
+        overflow: auto;
+        border: 0px solid;
+        border-collapse: collapse !important;
+    }
+    
+    table::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .table-container {
+        line-height: 1em;
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+    }
+    
+    .table-wrapper {
+        display: grid;
+        padding-right: 15px !important;
+        padding-bottom: 15px;
+        height: 60vh;
+        width: auto;
+        position: relative !important;
+        min-width: 1px;
+        min-height: 1px;
+        max-width: 100%;
+        overflow: auto;
+    }
+    
+    .table-background {
+        overflow: hidden;
+        position: absolute;
+        height: auto;
+        width: auto;
+        background: rgb(255, 255, 255);
+        left: 0;
+        right: 0;
+        top: 40px;
+        bottom: 0px;
+        z-index: -1;
+        border-radius: 15px;
+    }
+    
+    .top-left-corner, .top-left-corner-bg {
+        z-index: 99 !important;
+    }
+    
+    
+    
+    
+    
+    /*** RESPONSIVENESS ***/
+    
+    @media only screen and (max-width: 1130px) {
+        .content {
+            width: 100%;
+        }
+    
+        .sidebar {
+            display: none;
+        }
+    
+        .brand {
+            display: none;
+        }
+    
+        a.brand.brand-symbol.w-nav-brand {
+            display: block;
+        }
+    }
+    
+    @media all and (max-width: 767px) {
+        .demo-section {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+        .table {
+            position: relative;
+        }
+        .table-container {
+            border-radius: 0px;
+        }
+        .table-background {
+            border-radius: 0px !important;
+        }
+        .table-button, .top-left-corner, .top-left-corner-bg {
+            display: none;
+        }
+        .progress-bar {
+            border-radius: 0px;
+        }
+        .progress-indicator {
+            border-radius: 0px;
+        }
+    }
+    
+    
+    
+    
+    
+    /*** TABLE STYLES ***/
+    
+    tr {
+        z-index: 2;
+        color: #797979;
+    }
+    
+    td {
+        width: 100%;
+        white-space: nowrap;
+        position: relative;
+    }
+    
+    td::after {
+        content: "";
+        border-bottom: 1px solid rgb(224, 229, 255);
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+    }
+    
+    td:nth-child(even) {
+        background: #F7F8FF;
+    }
+    
+    td:last-child {
+        border-radius: 0px 10px 10px 0px;
+        background: linear-gradient(90deg, rgba(247, 248, 255, 1) 60%, rgba(255, 255, 255, 1) 80%);
+    }
+    
+    td:nth-child(even)::after {
+        content: "";
+        border-bottom: 1px solid rgb(224, 229, 255);
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+        z-index: 1 !important;
+    }
+    
+    td:last-child::after {
+        content: "";
+        width: calc(100% - 10px);
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+        z-index: 2;
+    }
+    
+    .kredittsjekk-table tr:hover>td>.column-sticky {
+        background: #e8ebfd;
+        z-index: 99 !important;
+    }
+    
+    .kredittsjekk-table tr:hover>td:nth-child(even) {
+        background: #e8ebfd;
+    }
+    
+    
+    
+    
+    
+    /*** TABLE HEADER ***/
+    
+    tr:first-child {
+        height: auto;
+        color: #0a0a09;
+        pointer-events: none;
+        border-radius: 0px !important;
+    }
+    
+    tr:first-child>td:first-child {
+        background-color: transparent !important;
+        border-radius: 0px !important;
+        font-weight: 700;
+    }
+    
+    tr:first-child>td:first-child::after {
+        border-bottom: none !important;
+    }
+    
+    tr:first-child .table-header {
+        margin-bottom: 15px !important;
+        background-color: #e8ebfd;
+        border-radius: 0px !important;
+        margin-top: -1px;
+        height: calc(auto + 1px);
+    }
+    
+    tr:first-child>td::after {
+        content: "";
+        border-bottom: 0px solid transparent;
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    tr:first-child>td:first-child>.column-sticky {
+        background-color: transparent !important;
+        margin-left: -15px;
+        margin-bottom: 15px;
+        width: auto;
+        padding-left: 25px !important;
+        border-radius: 0px !important;
+    }
+    
+    tr:first-child>td:first-child>.column-sticky::before {
+        position: absolute;
+        content: "";
+        height: 50px !important;
+        width: calc(100% + 40px) !important;
+        bottom: 0px;
+        top: 0px;
+        left: 0px;
+        right: 20px;
+        background: #e8ebfd !important;
+        margin-bottom: 15px !important;
+        padding-left: 20px !important;
+        z-index: -1 !important;
+    }
+    
+    tr:first-child>td:nth-child(even) {
+        background-color: transparent;
+    }
+    
+    tr:first-child td:last-child {
+        background: transparent !important;
+    }
+    
+    .table-data .table-header {
+        pointer-events: none;
+        position: relative;
+        margin-top: -1px !important;
+    }
+    
+    .table-data.table-header {
+        margin-top: -1px !important;
+    }
+    
+    
+    
+    
+    
+    
+    /*** TABLE ROWS ***/
+    
+    .row-section  {
+        padding-top: 15px;
+        padding-bottom: 10px;
+        user-select: none;
+        pointer-events: none;
+        font-weight: 700;
+    }
+    
+    .row-section .column-sticky  {
+        overflow: visible;
+    }
+    
+    
+    
+    
+    
+    /*** TABLE DATA ***/
+    
+    .table-data {
+        min-width: 50px;
+        padding: 8px 18px 8px 18px !important;
+        display: flex !important;
+        min-height: 25px;
+        justify-content: flex-end;
+        align-items: center;
+        z-index: 9;
+        width: auto;
+    }
+    
+    .kredittsjekk-table td:hover>.table-data {
+        background: #b3befc;
+        border-radius: 8px !important;
+        z-index: 9;
+    }
+    
+    
+    
+    
+    
+    /*** TABLE SECTION ***/
+    
+    tr:hover {
+        background: #e8ebfd;
+        color: #0A0909;
+    }
+    
+    
+    
+    
+    
+    /*** FIRST COLOMN ***/
+    
+    td:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 9 !important;
+        background: white !important;
+        padding-right: 15px !important;
+    }
+    
+    td:first-child::after {
+        position: absolute;
+        left: 0;
+        z-index: 9 !important;
+        background: white !important;
+        padding-right: 0px !important;
+        border-bottom: 2px solid white !important;
+    }
+    
+    .column-sticky {
+        color: #0A0909;
+        top: 0;
+        left: 15px !important;
+        right: 0;
+        position: relative;
+        background: white;
+        border-radius: 10px 0px 0px 10px;
+        height: 100%;
+        /*width: 150px;*/
+        padding: 8px 5vw 8px 12px !important;
+        display: flex !important;
+        min-height: 24px;
+        justify-content: flex-start;
+        align-items: center;
+        z-index: 99 !important;
+    }
+    
+    
+    
+    
+    
+    /*** GLOBAL ***/
+    
+    ::selection {
+        background: #EBF8FF;
+        /* WebKit/Blink Browsers */
+    }
+    
+    ::-moz-selection {
+        background: #EBF8FF;
+        /* Gecko Browsers */
+    }
+    
+    ::selection {
+        color: black;
+        background: rgba(94, 114, 228, 0.20);
+        border-radius: 4px;
+    }
+    
+    .content {
+        width: calc(100% - 320px);
+    }
+    
+    
+    
+    
+    
+    </style>
+    
+    <div class="demo-section">
+    <div class="demo-container">
+        <div class="table-button-wrapper">
+            <div id="left-button" class="table-button left-button">
+                <img src="https://uploads-ssl.webflow.com/61d80803b93e725ea5f468ba/625ebf6fc07cd87d7ee177d0_icon-arrow-prev-white.svg" alt="venstrepil">
+            </div>
+            <div id="right-button" class="table-button right-button">
+                <img src="https://uploads-ssl.webflow.com/61d80803b93e725ea5f468ba/625ebf6f88144e5d1a7ec04c_icon-arrow-next-white.svg" alt="høyrepil">
+            </div>
+            <div class="progress-bar">
+                <div id="myBar1" class="progress-indicator"></div>
+            </div>
+        </div>
+    <div class="table-container">
+        <div class="top-left-corner-bg" style="margin-top: 40; position: absolute; top: 0; left: 0; width: 15px; height: 15px; background-color: #e8ebfd;"></div>
+    <div class="top-left-corner" style="margin-top: 40; position: absolute; top: 0; left: 0; width: 15px; height: 15px; background-color: #fff; border-radius: 15px 0px 0px 0px;"></div>
+    <div class="table-wrapper">
+    <table cellspacing="0" cellpadding="0" class="kredittsjekk-table" id="scr-el1">
+    <tbody id="tableEl">
+        <tr style="position: sticky; top: 0px; z-index: 99;">
+            <td>
+                <div style=" position: absolute; top: -1px; bottom: 0px; left: 0px; right: 0px;"></div>
+                <div class="column-sticky" style="overflow: hidden;">
+                    
+                </div>
+            </td>
+            <td>
+                <div class="table-data table-header">
+                    2021
+                </div>
+            </td>
+            <td>
+                <div class="table-data table-header">
+                    2020
+                </div>
+            </td>
+            <td>
+                <div class="table-data table-header">
+                    2019
+                </div>
+            </td>
+            <td>
+                <div class="table-data table-header">
+                    2018
+                </div>
+            </td>
+            <td>
+                <div class="table-data table-header">
+                    2017
+                </div>
+            </td>
+            <td>
+                <div class="table-data table-header">
+                    2016
+                </div>
+            </td>
+            <td>
+                <div class="table-data table-header">
+                    2015
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="row-section">
+                <div class="column-sticky">
+                    Hovedtall
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Omsetning
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    999 700 999'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Resultat
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Egenkapital
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Aksjekapital
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="row-section">
+                <div class="column-sticky">
+                    Resultatregnskap
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Driftsinntekter
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Driftskostnader
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Driftsresultat
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Finansinntekter
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Finanskostnader
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Finans
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Resultat før skatt
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Skattekostnad
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Årsresultat
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="row-section">
+                <div class="column-sticky">
+                    Balanse
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum anleggsmidler
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum omløpsmidler
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum eiendeler
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum opptjent egenkapital
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum egenkapital
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum langsiktig gjeld
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum kortsiktig gjeld
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum gjeld og egenkapital
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="row-section">
+                <div class="column-sticky">
+                    Hva skal stå her?
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Salgsinntekter
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Andre inntekter
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Driftsinntekter
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Varekostnad
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Lønninger
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Lønn daglig leder
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Avskrivning
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Nedskrivning
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Andre driftskostnader
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Driftskostnader
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Driftsresultat
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Finansinntekter
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Finanskostnader
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Finans
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Konsernbidrag
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Utbytte
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Årsresultat
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="row-section">
+                <div class="column-sticky">
+                    Og her?
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Goodwill
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum immaterielle midler
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Fast eiendom
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Maskiner og anlegg
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Driftsløsøre
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum varige driftsmidler
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum finansielle anleggsmidler
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum anleggsmidler
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Varebeholdning
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Kundefordringer
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Andre fordringer
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum investeringer
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Kasse Bank
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum omløpsmidler
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum eiendeler
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum opptjent egenkapital
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum egenkapital
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum avsetninger
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Gjeld til kredittinstitusjoner
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum langsiktig gjeld
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Leverandørgjeld
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Betalbar skatt
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Skyldig offentlige avgifter
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Utbytte
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Annen kortsiktig gjeld
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum kortsiktig gjeld
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Sum gjeld og egenkapital
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="row-section">
+                <div class="column-sticky">
+                    Og her?
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Arbeidskapital
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Likviditetsgrad 1
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Likviditetsgrad 2
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Soliditet
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Resultatgrad
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Rentedekningsgrad
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Gjeldsgrad
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="column-sticky">
+                    Total kapitalrentabilitet
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+            <td>
+                <div class="table-data">
+                    4 700'
+                </div>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+    <div class="table-background">
+        <div class="progress-bar-vertical">
+            <div id="myBar2" class="progress-indicator-vertical"></div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <script>
+      let scrEl1 = document.getElementById("scr-el1")
+      scrEl1.addEventListener('scroll', event => {
+        let scrolled = (scrEl1.scrollLeft / (scrEl1.scrollWidth - scrEl1.clientWidth) ) * 100
+        document.getElementById("myBar1").style.width = scrolled + "%"
+      });
+    </script>
+    
+    <script>
+        let scrEl2 = document.getElementById("scr-el1")
+        scrEl2.addEventListener('scroll', event => {
+          let scrolled2 = (scrEl2.scrollTop / (scrEl2.scrollHeight - scrEl2.clientHeight) ) * 100
+          document.getElementById("myBar2").style.height = scrolled2 + "%"
+        });
+      </script>
+    
+    <script>
+    $('#right-button').click(function() {
+        event.preventDefault();
+        $('#scr-el1').animate({
+        scrollLeft: "+=200px"
+        }, "medium");
+    });
+    
+    $('#left-button').click(function() {
+        event.preventDefault();
+        $('#scr-el1').animate({
+        scrollLeft: "-=200px"
+        }, "medium");
+    });
+    </script>
