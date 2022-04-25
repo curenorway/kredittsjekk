@@ -291,11 +291,12 @@ tr:first-child td:last-child {
     pointer-events: none;
     font-weight: 400;
     background-color: #fff !important;
+    background: #fff !important;
     color: #0A0909;
 }
 
 .row-section .table-data {
-    font-size: 16px;
+    font-size: 16px !important;
     font-family: 'Nb international pro', sans-serif !important;
 }
 
@@ -320,7 +321,7 @@ tr:hover {
 /*** TABLE DATA ***/
 
 .table-data {
-    font-size: 15px !important;
+    font-size: 14px !important;
     font-family: Nbinternationalpro mono, monospace;
     min-width: 10vw;
     padding: 8px 18px 8px 18px !important;
