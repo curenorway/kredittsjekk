@@ -1,0 +1,120 @@
+<style>
+
+/*** PAGINATION AND SCROLLING ***/
+
+.progress-indicator {
+    position: absolute;
+    height: auto;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    width: 0%;
+    margin-left: 0px;
+    border-radius: 999px;
+    background-color: #495fd8;
+}
+
+.progress-indicator.progress-start {
+    width: 20px;
+    margin-left: 0px;
+}
+
+.progress-bar-vertical {
+    border-radius: 999px;
+    z-index: 2;
+    position: absolute;
+    left: auto;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: none;
+    overflow: hidden;
+    width: 4px;
+    margin-left: auto;
+    margin-right: 0px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    background-color: #b3befc;
+}
+
+.progress-indicator-vertical {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    width: 4px;
+    height: 0%;
+    margin-left: 0px;
+    border-radius: 999px;
+    background-color: #495fd8;
+}
+
+.table-button-wrapper {
+    display: flex;
+    padding: 0px;
+    position: relative;
+    min-height: 1px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    background-color: #b3befc;
+    border-radius: 15px;
+    margin-left: auto;
+    width: 100%;
+}
+
+.table-button {
+    cursor: pointer;
+    margin-top: auto;
+    display: flex;
+    width: 54px;
+    height: 24px;
+    border-radius: 15px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.12);
+    z-index: 10;
+    margin: 4px;
+}
+
+.table-button:hover {
+    background-color: #3647aa;
+}
+
+.table-button img {
+    margin: auto;
+    width: 8px;
+    height: 8px;
+}
+
+.left-button {
+    margin-right: auto;
+}
+
+.right-button {
+    margin-left: auto;
+}
+
+</style>
+
+<div class="table-button-wrapper">
+    <div id="left-button" class="table-button left-button">
+        <img src="https://uploads-ssl.webflow.com/61d80803b93e725ea5f468ba/625ebf6fc07cd87d7ee177d0_icon-arrow-prev-white.svg"
+            alt="venstrepil">
+    </div>
+    <div id="right-button" class="table-button right-button">
+        <img src="https://uploads-ssl.webflow.com/61d80803b93e725ea5f468ba/625ebf6f88144e5d1a7ec04c_icon-arrow-next-white.svg"
+            alt="høyrepil">
+    </div>
+        <div id="myBar1" class="progress-indicator"></div>
+</div>
